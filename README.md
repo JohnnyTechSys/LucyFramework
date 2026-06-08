@@ -1,170 +1,193 @@
-# 🚀 LucyAI
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![License](https://img.shields.io/badge/license-AGPL--3.0-red.svg)
-![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
-![AI](https://img.shields.io/badge/AI-agents-purple.svg)
-![Multimodal](https://img.shields.io/badge/multimodal-supported-orange.svg)
-![GitHub stars](https://img.shields.io/github/stars/JohnnyTechSys/LucyFramework?style=social)
+ LucyAI README
 
-Turn Python functions into multimodal AI agents.
+🚀 LucyAI
+=========
 
-LucyAI is a lightweight framework for building AI agents with tool calling, memory, and multimodal inputs in pure Python.
+**Turn Python functions into multimodal AI agents in seconds.**
 
-No graphs. No config files. No boilerplate.
+No graphs. No config files. No boilerplate.  
+Just Python → intelligent agents.
 
-Just Python → agents.
+* * *
 
-<br>
+⚡ Why LucyAI?
+-------------
 
-## 🖵 Demo
+Most AI frameworks force complexity:
 
-[![asciicast](https://asciinema.org/a/vUi5VWSTxZK2dyps.svg)](https://asciinema.org/a/vUi5VWSTxZK2dyps)
+*   Graphs
+*   Pipeline systems
+*   Config files
+*   Extra abstraction layers
 
-<br>
+**LucyAI removes all of it.**
 
-## ⚡ Features
+*   ✔ Function = Tool
+*   ✔ Instant execution
+*   ✔ Multimodal by default
+*   ✔ Built-in memory
+*   ✔ Zero boilerplate
 
-- Simple Python-first API
-- Automatic tool calling
-- Tool schemas generated from type hints
-- Conversation history built-in
-- Image, audio, and video inputs
-- NumPy + Pillow support
-- Gemini integration (with fallback chain)
-- Minimal dependencies
-- Python 3.11+
+_If you can write Python, you can build AI agents._
 
----
+* * *
 
-## 📦 Installation
-```
-uv add lucyai #UV is recomended
-```
+🎬 Live Demo
+------------
+
+Real tool calling + memory + no setup:
+
+[![demo](https://asciinema.org/a/vUi5VWSTxZK2dyps.svg)](https://asciinema.org/a/vUi5VWSTxZK2dyps)
+
+* * *
+
+📦 Installation
+---------------
+
+    uv add lucyai
+
 or
-```
-pip install lucyai #pip is fine
-```
-<br>
 
-## 🧠 Quick Start
-```
-from lucyai import Lucy
+    pip install lucyai
 
-agent = Lucy()
+* * *
 
-response = agent.run("Hello!")
-print(response)
-```
-<br>
+🧠 Quick Start
+--------------
 
-## 🔧 Tool Calling
-```
-from lucyai import Lucy
+    from lucyai import Lucy
+    
+    agent = Lucy()
+    
+    response = agent.run("Hello!")
+    print(response)
 
-agent = Lucy()
+* * *
 
-@agent.tool
-def get_time() -> str:
-    return "3:00 PM"
+🔧 Tool Calling
+---------------
 
-@agent.tool
-def add(a: int, b: int) -> int:
-    return a + b
-```
-<br>
+Turn Python functions into AI tools automatically:
 
-## 🖼️ Image Input
-```
-agent.run("What is in this image?", imagedata="image.png")
-```
+    from lucyai import Lucy
+    
+    agent = Lucy()
+    
+    @agent.tool
+    def get_time() -> str:
+        return "3:00 PM"
+    
+    @agent.tool
+    def add(a: int, b: int) -> int:
+        return a + b
+
+* * *
+
+🖼️ Image Input
+---------------
+
+    agent.run("What is in this image?", imagedata="image.png")
+
 Supported:
-- PNG
-- JPEG
-- Pillow Images
-- NumPy Arrays
-- Raw bytes
 
-<br>
+*   PNG
+*   JPEG
+*   Pillow Images
+*   NumPy arrays
+*   Raw bytes
 
-## 🎧 Audio Input
-```
-agent.run("Transcribe this audio", audiodata="audio.wav")
-```
+* * *
+
+🎧 Audio Input
+--------------
+
+    agent.run("Transcribe this audio", audiodata="audio.wav")
+
 Supported:
-- WAV
-- MP3
-- Raw bytes
 
-<br>
+*   WAV
+*   MP3
+*   Raw bytes
 
-## 🎥 Video Input
-```
-agent.run("Describe this video", videodata="video.mp4")
-```
+* * *
+
+🎥 Video Input
+--------------
+
+    agent.run("Describe this video", videodata="video.mp4")
+
 Supported:
-- MP4
-- Raw bytes
 
-<br>
+*   MP4
+*   Raw bytes
 
-## 💭 Memory
-```
-agent = Lucy(history_limit=10)
+* * *
 
-agent.run("My name is Johnny")
-agent.run("What is my name?")
+💭 Memory
+---------
 
-agent.clear_history()
-```
-<br>
+    agent = Lucy(history_limit=10)
+    
+    agent.run("My name is Johnny")
+    agent.run("What is my name?")
+    
+    agent.clear_history()
 
-## 🔑 API Keys
+* * *
+
+🔑 API Keys
+-----------
 
 Environment variables:
-- GEMINI_API_KEY
-- HZAPIKEY
-```
-export GEMINI_API_KEY="your-key"
-```
+
+*   GEMINI\_API\_KEY
+*   HZAPIKEY
+
+    export GEMINI_API_KEY="your-key"
+
 Or:
-```
-Lucy(api_key="your-key")
-```
-<br>
 
-## 🧪 Example
+    Lucy(api_key="your-key")
 
-from lucyai import Lucy
+* * *
 
-agent = Lucy()
+🧪 Example
+----------
 
-@agent.tool
-def search(q: str) -> str:
-    return f"Searching: {q}"
+    from lucyai import Lucy
+    
+    agent = Lucy()
+    
+    @agent.tool
+    def search(q: str) -> str:
+        return f"Searching: {q}"
+    
+    print(agent.run("Find cauliflower recipes"))
 
-print(agent.run("Find cauliflower recipes"))
+* * *
 
-<br>
+🤖 Why LucyAI?
+--------------
 
-## 🤖 Why LucyAI?
+*   Fast setup
+*   Multimodal by default
+*   Real tool calling
+*   Minimal boilerplate
+*   Pure Python
 
-- Fast setup
-- Multimodal by default
-- Real tool calling
-- Minimal boilerplate
-- Pure Python
+**If you can write a function, you can build an AI agent.**
 
-"If you can write a function, you can build an agent."
+* * *
 
-<br>
+📋 Requirements
+---------------
 
-## 📋 Requirements
+*   Python 3.11+
+*   Gemini API key
 
-- Python 3.11+
-- Gemini API key
+* * *
 
-<br>
-
-## 📜 License
+📜 License
+----------
 
 AGPL-3.0-only
