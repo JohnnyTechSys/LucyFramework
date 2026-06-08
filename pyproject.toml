@@ -1,0 +1,23 @@
+[project]
+name = "lucyframework"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+authors = [
+    { name = "Johnny Konczal", email = "johndrostan@outlook.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "dotenv>=0.9.9",
+    "google-genai>=2.8.0",
+    "numpy>=2.4.6",
+    "pillow>=12.2.0",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+lucyframework = "lucyframework:main"
+
+[build-system]
+requires = ["uv_build>=0.11.16,<0.12.0"]
+build-backend = "uv_build"
