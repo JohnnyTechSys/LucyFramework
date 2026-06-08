@@ -8,7 +8,7 @@ No graphs. No config files. No boilerplate.
 
 Just Python → agents.
 
----
+<br>
 
 ## ⚡ Features
 
@@ -105,6 +105,7 @@ agent.run("What is my name?")
 agent.clear_history()
 ```
 <br>
+
 ## 🔑 API Keys
 
 Environment variables:
