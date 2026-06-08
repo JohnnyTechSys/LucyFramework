@@ -25,13 +25,13 @@ Lucy makes it easy to build AI agents with automatic tool calling, conversation 
 ## Installation
 
 ```bash
-uv add lucyframework
+uv add lucyai #UV is recommended
 ```
 
 or
 
 ```bash
-pip install lucyframework
+pip install lucyframework #pip is also fine
 ```
 
 ---
@@ -39,7 +39,7 @@ pip install lucyframework
 ## Quick Start
 
 ```python
-from lucyframework import Lucy
+from lucyai import Lucy
 
 agent = Lucy()
 
