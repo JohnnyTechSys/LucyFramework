@@ -151,6 +151,7 @@ print(agent.run("Find cauliflower recipes"))
 - Gemini API key
 
 <br>
+
 ## 📜 License
 
 AGPL-3.0-only
