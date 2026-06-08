@@ -25,28 +25,28 @@ Just Python → agents.
 ---
 
 ## 📦 Installation
-
-uv add lucyai
-
+```
+uv add lucyai #UV is recomended
+```
 or
-
-pip install lucyai
-
----
+```
+pip install lucyai #pip is fine
+```
+<br>
 
 ## 🧠 Quick Start
-
+```
 from lucyai import Lucy
 
 agent = Lucy()
 
 response = agent.run("Hello!")
 print(response)
-
----
+```
+<br>
 
 ## 🔧 Tool Calling
-
+```
 from lucyai import Lucy
 
 agent = Lucy()
@@ -58,13 +58,13 @@ def get_time() -> str:
 @agent.tool
 def add(a: int, b: int) -> int:
     return a + b
-
----
+```
+<br>
 
 ## 🖼️ Image Input
-
+```
 agent.run("What is in this image?", imagedata="image.png")
-
+```
 Supported:
 - PNG
 - JPEG
@@ -72,53 +72,52 @@ Supported:
 - NumPy Arrays
 - Raw bytes
 
----
+<br>
 
 ## 🎧 Audio Input
-
+```
 agent.run("Transcribe this audio", audiodata="audio.wav")
-
+```
 Supported:
 - WAV
 - MP3
 - Raw bytes
 
----
+<br>
 
 ## 🎥 Video Input
-
+```
 agent.run("Describe this video", videodata="video.mp4")
-
+```
 Supported:
 - MP4
 - Raw bytes
 
----
+<br>
 
 ## 💭 Memory
-
+```
 agent = Lucy(history_limit=10)
 
 agent.run("My name is Johnny")
 agent.run("What is my name?")
 
 agent.clear_history()
-
----
-
+```
+<br>
 ## 🔑 API Keys
 
 Environment variables:
 - GEMINI_API_KEY
 - HZAPIKEY
-
+```
 export GEMINI_API_KEY="your-key"
-
+```
 Or:
-
+```
 Lucy(api_key="your-key")
-
----
+```
+<br>
 
 ## 🧪 Example
 
@@ -132,7 +131,7 @@ def search(q: str) -> str:
 
 print(agent.run("Find cauliflower recipes"))
 
----
+<br>
 
 ## 🤖 Why LucyAI?
 
@@ -144,15 +143,14 @@ print(agent.run("Find cauliflower recipes"))
 
 "If you can write a function, you can build an agent."
 
----
+<br>
 
 ## 📋 Requirements
 
 - Python 3.11+
 - Gemini API key
 
----
-
+<br>
 ## 📜 License
 
 AGPL-3.0-only
