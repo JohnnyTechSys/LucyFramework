@@ -1,4 +1,3 @@
- LucyAI README
 
 🚀 LucyAI
 =========
