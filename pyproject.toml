@@ -1,22 +1,22 @@
 [project]
 name = "lucyai"
 version = "0.1.0"
-description = ""
+description = "Lightweight multimodal AI agent framework with tool calling and Gemini integration"
 readme = "README.md"
 authors = [
     { name = "Johnny Konczal", email = "johndrostan@outlook.com" }
 ]
+license = "AGPL-3.0-only"
+license-files = ["LICENCE"]
 requires-python = ">=3.11"
 dependencies = [
-    "dotenv>=0.9.9",
+    "python-dotenv>=1.0.0",
     "google-genai>=2.8.0",
     "numpy>=2.4.6",
     "pillow>=12.2.0",
     "requests>=2.34.2",
 ]
 
-[project.scripts]
-lucyframework = "lucyframework:main"
 
 [build-system]
 requires = ["uv_build>=0.11.16,<0.12.0"]
