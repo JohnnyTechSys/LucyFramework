@@ -1,113 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>LucyAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//==============================//
+// LUCYAI::DOC v1.0 (pseudo-lang)
+// renderer: markdown-compatible
+// license: AGPL-3.0-only
+//==============================//
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f17;
-      color: #e8eefc;
-      line-height: 1.5;
-    }
+#> 🚀 LucyAI
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+##::meta
+title = "LucyAI"
+tagline = "Turn Python functions into multimodal AI agents"
+mode = "agent-framework"
+language = "python + gemini-tools"
+::end
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+##::intro
+LucyAI is a lightweight framework for building AI agents with tool calling,
+memory, and multimodal inputs in pure Python.
 
-    .tagline {
-      font-size: 18px;
-      color: #aab6d6;
-      margin-bottom: 30px;
-    }
+No graphs. No config files. No boilerplate.
 
-    .hero {
-      background: #121a2a;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-    }
+Just Python → agents.
+::end
 
-    .code {
-      background: #0a0f1d;
-      padding: 15px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-family: monospace;
-      color: #9ef0ff;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: #121a2a;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #7ab8ff;
-    }
-
-    .section {
-      margin-top: 40px;
-    }
-
-    .highlight {
-      color: #7df9ff;
-    }
-
-    .footer {
-      margin-top: 50px;
-      font-size: 12px;
-      color: #6b7896;
-      text-align: center;
-    }
-
-    pre {
-      margin: 0;
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="container">
-
-  <!-- HERO -->
-  <h1>🚀 LucyAI</h1>
-  <div class="tagline">
-    Turn Python functions into multimodal AI agents.
-  </div>
-
-  <div class="hero">
-    <p>
-      LucyAI is a lightweight framework for building AI agents with
-      <span class="highlight">tool calling</span>,
-      <span class="highlight">memory</span>, and
-      <span class="highlight">multimodal inputs</span>.
-    </p>
-
-    <p>No graphs. No config files. No boilerplate.</p>
-
-    <div class="code">
-<pre>
+##::example.block python
 from lucyai import Lucy
 
 agent = Lucy()
@@ -117,110 +32,98 @@ def search(query: str):
     return f"results for {query}"
 
 print(agent.run("Search for pizza recipes"))
-</pre>
-    </div>
-  </div>
+::end
 
-  <!-- FEATURES -->
-  <div class="section">
-    <h2>⚡ Features</h2>
+##::features.block
+- Simple Python-first API
+- Automatic tool calling
+- Type-hint → tool schema generation
+- Conversation memory
+- Image / Audio / Video inputs
+- NumPy + Pillow support
+- Gemini integration w/ fallback chain
+- Minimal dependencies
+- Python 3.11+
+::end
 
-    <div class="grid">
-      <div class="card">
-        <h3>Simple API</h3>
-        <p>Just Python functions → AI agents</p>
-      </div>
-
-      <div class="card">
-        <h3>Tool Calling</h3>
-        <p>Automatic function execution via LLM reasoning</p>
-      </div>
-
-      <div class="card">
-        <h3>Multimodal</h3>
-        <p>Images, audio, video, numpy, PIL support</p>
-      </div>
-
-      <div class="card">
-        <h3>Memory</h3>
-        <p>Built-in conversation history system</p>
-      </div>
-
-      <div class="card">
-        <h3>Gemini Ready</h3>
-        <p>Automatic fallback model chain</p>
-      </div>
-
-      <div class="card">
-        <h3>Minimal</h3>
-        <p>No heavy framework dependencies</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- INSTALL -->
-  <div class="section">
-    <h2>📦 Installation</h2>
-
-    <div class="code">
-<pre>
+##::install.block bash
 uv add lucyai
 # or
 pip install lucyai
-</pre>
-    </div>
-  </div>
+::end
 
-  <!-- EXAMPLE -->
-  <div class="section">
-    <h2>🧠 Example</h2>
-
-    <div class="code">
-<pre>
+##::quickstart.block python
 from lucyai import Lucy
 
 agent = Lucy()
 
-response = agent.run("Hello!")
-print(response)
-</pre>
-    </div>
-  </div>
+print(agent.run("Hello!"))
+::end
 
-  <!-- WHY -->
-  <div class="section">
-    <h2>🤖 Why LucyAI?</h2>
+##::tools.block python
+@agent.tool
+def get_time() -> str:
+    return "3:00 PM"
 
-    <p>
-      Most AI frameworks require config files, graphs, and heavy abstractions.
-    </p>
+@agent.tool
+def add(a: int, b: int) -> int:
+    return a + b
+::end
 
-    <p>
-      <span class="highlight">LucyAI removes all of that.</span>
-    </p>
+##::media.support
+image: PNG, JPEG, PIL, NumPy
+audio: WAV, MP3, raw bytes
+video: MP4, raw bytes
+::end
 
-    <div class="grid">
-      <div class="card">⚡ Fast setup</div>
-      <div class="card">🧠 Multimodal by default</div>
-      <div class="card">🔧 Real tool calling</div>
-      <div class="card">🪶 Minimal boilerplate</div>
-      <div class="card">🐍 Pure Python</div>
-    </div>
-  </div>
+##::memory.block
+agent = Lucy(history_limit=10)
 
-  <!-- PITCH -->
-  <div class="section">
-    <h2>💡 One-line pitch</h2>
-    <div class="hero">
-      Build multimodal AI agents in Python with just functions.
-    </div>
-  </div>
+agent.run("My name is Johnny")
+agent.run("What is my name?")
 
-  <div class="footer">
-    AGPL-3.0-only • LucyAI
-  </div>
+agent.clear_history()
+::end
 
-</div>
+##::env.block
+GEMINI_API_KEY or HZAPIKEY
 
-</body>
-</html>
+export GEMINI_API_KEY="your-api-key"
+::end
+
+##::example.full python
+from lucyai import Lucy
+
+agent = Lucy()
+
+@agent.tool
+def search(query: str) -> str:
+    return f"Searching for: {query}"
+
+print(agent.run("Search cauliflower recipes"))
+::end
+
+##::why
+LucyAI removes complexity:
+
+- fast setup
+- multimodal by default
+- real tool calling
+- minimal boilerplate
+- pure Python
+
+"If you can write a function, you can build an agent."
+::end
+
+##::requirements
+Python >= 3.11
+Gemini API key
+::end
+
+##::license
+AGPL-3.0-only
+::end
+
+//==============================//
+// END LUCYAI::DOC
+//==============================//
