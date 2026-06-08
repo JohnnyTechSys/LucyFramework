@@ -1,4 +1,10 @@
 # 🚀 LucyAI
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+![License](https://img.shields.io/badge/license-AGPL--3.0-red.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
+![AI](https://img.shields.io/badge/AI-agents-purple.svg)
+![Multimodal](https://img.shields.io/badge/multimodal-supported-orange.svg)
+![GitHub stars](https://img.shields.io/github/stars/JohnnyTechSys/LucyFramework?style=social)
 
 Turn Python functions into multimodal AI agents.
 
@@ -7,6 +13,12 @@ LucyAI is a lightweight framework for building AI agents with tool calling, memo
 No graphs. No config files. No boilerplate.
 
 Just Python → agents.
+
+<br>
+
+## 🖵 Demo
+
+[![asciicast](https://asciinema.org/a/vUi5VWSTxZK2dyps.svg)](https://asciinema.org/a/vUi5VWSTxZK2dyps)
 
 <br>
 
