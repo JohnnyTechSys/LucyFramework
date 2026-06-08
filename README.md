@@ -1,66 +1,56 @@
-//==============================//
-// LUCYAI::DOC v1.0 (pseudo-lang)
-// renderer: markdown-compatible
-// license: AGPL-3.0-only
-//==============================//
+# 🚀 LucyAI
 
-#> 🚀 LucyAI
+Turn Python functions into multimodal AI agents.
 
-##::meta
-title = "LucyAI"
-tagline = "Turn Python functions into multimodal AI agents"
-mode = "agent-framework"
-language = "python + gemini-tools"
-::end
-
-##::intro
-LucyAI is a lightweight framework for building AI agents with tool calling,
-memory, and multimodal inputs in pure Python.
+LucyAI is a lightweight framework for building AI agents with tool calling, memory, and multimodal inputs in pure Python.
 
 No graphs. No config files. No boilerplate.
 
 Just Python → agents.
-::end
 
-##::example.block python
-from lucyai import Lucy
+---
 
-agent = Lucy()
+## ⚡ Features
 
-@agent.tool
-def search(query: str):
-    return f"results for {query}"
-
-print(agent.run("Search for pizza recipes"))
-::end
-
-##::features.block
 - Simple Python-first API
 - Automatic tool calling
-- Type-hint → tool schema generation
-- Conversation memory
-- Image / Audio / Video inputs
+- Tool schemas generated from type hints
+- Conversation history built-in
+- Image, audio, and video inputs
 - NumPy + Pillow support
-- Gemini integration w/ fallback chain
+- Gemini integration (with fallback chain)
 - Minimal dependencies
 - Python 3.11+
-::end
 
-##::install.block bash
+---
+
+## 📦 Installation
+
 uv add lucyai
-# or
-pip install lucyai
-::end
 
-##::quickstart.block python
+or
+
+pip install lucyai
+
+---
+
+## 🧠 Quick Start
+
 from lucyai import Lucy
 
 agent = Lucy()
 
-print(agent.run("Hello!"))
-::end
+response = agent.run("Hello!")
+print(response)
 
-##::tools.block python
+---
+
+## 🔧 Tool Calling
+
+from lucyai import Lucy
+
+agent = Lucy()
+
 @agent.tool
 def get_time() -> str:
     return "3:00 PM"
@@ -68,62 +58,101 @@ def get_time() -> str:
 @agent.tool
 def add(a: int, b: int) -> int:
     return a + b
-::end
 
-##::media.support
-image: PNG, JPEG, PIL, NumPy
-audio: WAV, MP3, raw bytes
-video: MP4, raw bytes
-::end
+---
 
-##::memory.block
+## 🖼️ Image Input
+
+agent.run("What is in this image?", imagedata="image.png")
+
+Supported:
+- PNG
+- JPEG
+- Pillow Images
+- NumPy Arrays
+- Raw bytes
+
+---
+
+## 🎧 Audio Input
+
+agent.run("Transcribe this audio", audiodata="audio.wav")
+
+Supported:
+- WAV
+- MP3
+- Raw bytes
+
+---
+
+## 🎥 Video Input
+
+agent.run("Describe this video", videodata="video.mp4")
+
+Supported:
+- MP4
+- Raw bytes
+
+---
+
+## 💭 Memory
+
 agent = Lucy(history_limit=10)
 
 agent.run("My name is Johnny")
 agent.run("What is my name?")
 
 agent.clear_history()
-::end
 
-##::env.block
-GEMINI_API_KEY or HZAPIKEY
+---
 
-export GEMINI_API_KEY="your-api-key"
-::end
+## 🔑 API Keys
 
-##::example.full python
+Environment variables:
+- GEMINI_API_KEY
+- HZAPIKEY
+
+export GEMINI_API_KEY="your-key"
+
+Or:
+
+Lucy(api_key="your-key")
+
+---
+
+## 🧪 Example
+
 from lucyai import Lucy
 
 agent = Lucy()
 
 @agent.tool
-def search(query: str) -> str:
-    return f"Searching for: {query}"
+def search(q: str) -> str:
+    return f"Searching: {q}"
 
-print(agent.run("Search cauliflower recipes"))
-::end
+print(agent.run("Find cauliflower recipes"))
 
-##::why
-LucyAI removes complexity:
+---
 
-- fast setup
-- multimodal by default
-- real tool calling
-- minimal boilerplate
-- pure Python
+## 🤖 Why LucyAI?
+
+- Fast setup
+- Multimodal by default
+- Real tool calling
+- Minimal boilerplate
+- Pure Python
 
 "If you can write a function, you can build an agent."
-::end
 
-##::requirements
-Python >= 3.11
-Gemini API key
-::end
+---
 
-##::license
+## 📋 Requirements
+
+- Python 3.11+
+- Gemini API key
+
+---
+
+## 📜 License
+
 AGPL-3.0-only
-::end
-
-//==============================//
-// END LUCYAI::DOC
-//==============================//
