@@ -75,9 +75,30 @@ class Lucy:
         self.history = []
 
     def _get_history_contents(self):
-        if self.history_limit and len(self.history) > self.history_limit:
-            return self.history[-self.history_limit :]
-        return self.history
+        # Filter history to remove completed tool call cycles
+        # This maintains proper turn structure for Gemini API
+        filtered_history = []
+        i = 0
+        while i < len(self.history):
+            turn = self.history[i]
+            filtered_history.append(turn)
+            
+            # If this is a model turn with tool calls, skip the function response and final model response
+            if turn.get("role") == "model":
+                parts = turn.get("parts", [])
+                has_tool_call = any(
+                    part.get("functionCall") or part.get("function_call") 
+                    for part in parts
+                )
+                if has_tool_call and i + 2 < len(self.history):
+                    # Skip the function response (user with functionResponse)
+                    # and the final model response
+                    i += 2
+            i += 1
+        
+        if self.history_limit and len(filtered_history) > self.history_limit:
+            return filtered_history[-self.history_limit :]
+        return filtered_history
 
     def run(
         self,
@@ -186,13 +207,13 @@ class Lucy:
                 )
 
                 function_response_parts.append(
-                    {"function_response": {"name": name, "response": response_dict}}
+                    {"functionResponse": {"name": name, "response": response_dict}}
                 )
 
             self.history.append({"role": "user", "parts": function_response_parts})
             # Record executed tool calls
             for p in function_response_parts:
-                executed_tool_calls.append(p["function_response"])
+                executed_tool_calls.append(p["functionResponse"])
 
             # Request model again to get its follow-up output (or further tool calls)
             response = req(
